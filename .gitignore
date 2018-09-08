@@ -1,3 +1,4 @@
 *.pyc
 __pycache__
 141.png
+*.log
