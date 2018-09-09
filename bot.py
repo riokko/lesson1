@@ -2,8 +2,6 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 # Настройки прокси
-PROXY = {'proxy_url': 'socks5://t1.learn.python.ru:1080',
-    'urllib3_proxy_kwargs': {'username': 'learn', 'password': 'python'}}
 
 import logging
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(message)s',
@@ -23,7 +21,7 @@ def talk_to_me(bot, update):
 
 # функция, которая соединяется с платформой Telegram, "тело" нашего бота
 def main():
-    mybot = Updater("646613110:AAEaqvqJnNUOqVNNFTmHU5mTEVxN3VJpQlo", request_kwargs = PROXY)
+    mybot = Updater(settings.API_KEY, request_kwargs = PROXY)
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
